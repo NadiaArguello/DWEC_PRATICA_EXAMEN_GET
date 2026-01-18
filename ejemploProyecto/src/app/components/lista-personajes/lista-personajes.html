@@ -1,0 +1,46 @@
+<section *ngIf="listaPersonajes.length >0; else cargando">
+    <article>
+        <input type="text" placeholder="Filtrar por Nombre" [(ngModel)]="filtroNombre" (input)="aplicarFiltros()">
+        <select [(ngModel)]="filtroEstado" (change)="aplicarFiltros()">
+            <option value="">Filtrar por Estado</option>
+            <option value="Alive">Vivo</option>
+            <option value="Dead">Muerto</option>
+            <option value="Unknown">Desconocido</option>
+        </select>
+        <select [(ngModel)]="filtroEspecie" (change)="aplicarFiltros()">
+            <option value="">Filtrar por Especie</option>
+            <option value="Human">Humano</option>
+            <option value="Alien">Alienígena</option>
+        </select>
+        <select [(ngModel)]="filtroGenero" (change)="aplicarFiltros()">
+            <option value="">Filtrar por Género</option>
+            <option value="Male">Masculino</option>
+            <option value="Female">Femenino</option>
+        </select>
+        <button (click)="limpiarFiltros()">Limpiar</button>
+    </article>
+    <article *ngIf="listaFiltrada.length >0; else ninguno">
+        <div class="tarjeta" *ngFor="let personaje of listaFiltrada">
+            <h3>{{personaje.name}}</h3>
+
+            <div [ngSwitch]="personaje.status">
+                <p *ngSwitchCase="'Alive'"><strong>Estado: </strong>Vivo</p>
+                <p *ngSwitchCase="'Dead'"><strong>Estado: </strong>Muerto</p>
+                <p *ngSwitchCase="'Unknown'"><strong>Estado: </strong>Desconocido</p>
+                <p *ngSwitchDefault><strong>Estado: </strong>Otro</p>
+            </div>
+
+            <img [src]="personaje.image" alt="{{personaje.name}}">
+            <div class="contenedor-foto"><a [routerLink]="['/personajes', personaje.id]"><strong>VER DETALLE</strong></a></div>
+        </div>
+    </article>
+
+</section>
+
+<ng-template #cargando>
+    <p>Cargando datos...</p>
+</ng-template>
+
+<ng-template #ninguno>
+    <p>Ningún personaje coincide con los datos</p>
+</ng-template>

@@ -1,0 +1,32 @@
+<section *ngIf="datosPersonaje; else cargando">
+    <article>
+        <img [src]="datosPersonaje.image" alt="{{datosPersonaje.name}}">
+    </article>
+    <article>
+        <h1>{{datosPersonaje.name}}</h1>
+
+        <div [ngSwitch]="datosPersonaje.status">
+            <p style="color: green" *ngSwitchCase="'Alive'"><strong>Estado: </strong>Vivo</p>
+            <p style="color: red" *ngSwitchCase="'Dead'"><strong>Estado: </strong>Muerto</p>
+            <p *ngSwitchCase="'Unknown'"><strong>Estado: </strong>Desconocido</p>
+            <p *ngSwitchDefault><strong>Estado: </strong>Otro</p>
+        </div>
+        <div [ngSwitch]="datosPersonaje.gender">
+            <p *ngSwitchCase="'Male'"><strong>Género: </strong>Masculino</p>
+            <p *ngSwitchCase="'Female'"><strong>Género: </strong>Femenino</p>
+            <p *ngSwitchDefault><strong>Género: </strong>Desconocido</p>
+        </div>
+        <div [ngSwitch]="datosPersonaje.species">
+            <p *ngSwitchCase="'Human'"><strong>Especie: </strong>Humano</p>
+            <p *ngSwitchCase="'Alien'"><strong>Especie: </strong>Alien</p>
+            <p *ngSwitchDefault><strong>Especie: </strong>Otro</p>
+        </div>
+
+        <a [routerLink]="['/personajes']"><strong>VOLVER</strong></a>
+    </article>
+
+</section>
+
+<ng-template #cargando>
+    <p>Cargando datos...</p>
+</ng-template>

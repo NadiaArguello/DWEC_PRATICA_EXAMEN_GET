@@ -1,0 +1,14 @@
+<header>
+    <h1>PAGINA DE PERSONAJES DE RICK&MORTY</h1>
+    <nav>
+        <a [routerLink]="['/']" routerLinkActive="active">INICIO</a>
+        <a [routerLink]="['/personajes']" routerLinkActive="active">PERSONAJES</a>
+        <a [routerLink]="['*/contacto']" routerLinkActive="active">CONTACTO</a>
+    </nav>
+</header>
+<main>
+    <router-outlet></router-outlet>
+</main>
+<footer>
+    <h3>Creado por Nadia</h3>
+</footer>

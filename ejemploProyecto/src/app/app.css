@@ -1,0 +1,45 @@
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 15vh;
+    width: 100vw;
+    background-color: red;
+    color: white;
+    margin: 0px;
+    padding: 0px;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+}
+
+header nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+main {
+    min-height: 80vh;
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
+}
+
+footer {
+    height: 5vh;
+    width: 100vw;
+    background-color: red;
+    color: white;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
